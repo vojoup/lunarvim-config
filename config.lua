@@ -1,0 +1,13 @@
+reload('user.plugins')
+reload('user.colorscheme')
+reload('user.options')
+reload('user.keymaps')
+reload('user.which-key')
+reload('user.statusline')
+reload('user.lsp')
+reload('user.dashboard')
+reload('user.lsp-status')
+reload('user.autocmds')
+-- Turning off until inlay hints can be displayed inline
+-- reload('user.inlay-hints')
+reload('user.telescope')
