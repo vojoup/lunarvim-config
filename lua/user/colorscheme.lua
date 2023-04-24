@@ -79,10 +79,10 @@ if lvim.colorscheme == themes.catppuccin then
       dark = "mocha",
     },
     transparent_background = false,
-    show_end_of_buffer = false, -- show the '~' characters after the end of buffers
+    show_end_of_buffer = true, -- show the '~' characters after the end of buffers
     term_colors = false,
     dim_inactive = {
-      enabled = false,
+      enabled = true,
       shade = "dark",
       percentage = 0.15,
     },
@@ -109,8 +109,28 @@ if lvim.colorscheme == themes.catppuccin then
       gitsigns = true,
       nvimtree = true,
       telescope = true,
-      notify = false,
-      mini = false,
+      notify = true,
+      mini = true,
+      hop = true,
+      treesitter_context = true,
+      octo = true,
+      lsp_trouble = true,
+      which_key = true,
+      native_lsp = {
+        enabled = true,
+        virtual_text = {
+          errors = "italic",
+          hints = "italic",
+          warnings = "italic",
+          information = "italic",
+        },
+        underlines = {
+          errors = "underline",
+          hints = "underline",
+          warnings = "underline",
+          information = "underline",
+        },
+      },
       -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
     },
   })

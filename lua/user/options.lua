@@ -10,10 +10,11 @@ if vim.g.neovide then
 end
 
 vim.opt.guifont = "OperatorMonoLig-Medium:h17"
--- vim.api.nvim_set_hl(0, 'Comment', { italic = true })
 lvim.log.level = "warn"
 lvim.format_on_save = true
 vim.wo.relativenumber = true
+
+lvim.builtin.treesitter.rainbow.enable = true -- rainbow parentheses
 
 lvim.builtin.treesitter.ensure_installed = {
   "bash",

@@ -22,7 +22,7 @@ lvim.plugins = {
   { "tomasr/molokai" },
   { "ayu-theme/ayu-vim" },
   {
-    "catppuccin/nvim", as = "catppuccin"
+    "catppuccin/nvim", name = "catppuccin"
   },
 
   { "lvimuser/lsp-inlayhints.nvim" },
@@ -100,6 +100,23 @@ lvim.plugins = {
       end)
     end,
   },
+
+  {
+    "pwntester/octo.nvim",
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+      'nvim-tree/nvim-web-devicons',
+    },
+    config = function()
+      require("octo").setup()
+    end,
+  },
+
+  {
+    "mrjones2014/nvim-ts-rainbow",
+  },
+
 }
 
 -- table.insert(lvim.plugins, {
