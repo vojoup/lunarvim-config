@@ -12,7 +12,7 @@ vim.keymap.set('n', 'gn', ":tabe %<CR>")
 lvim.keys.normal_mode["<C-x>"] = "<cmd>ZenMode<CR>"
 
 lvim.lsp.buffer_mappings.normal_mode["gr"] = {
-  ":lua require'telescope.builtin'.lsp_references()<cr>",
+  ":lua require'telescope.builtin'.lsp_references(require('telescope.themes').get_dropdown({}))<cr>",
   kind.cmp_kind.Reference .. " Find references"
 }
 

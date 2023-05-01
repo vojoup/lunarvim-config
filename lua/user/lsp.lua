@@ -7,17 +7,6 @@ vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "tsserver" }
 local common_on_attach = lvim_lsp.common_on_attach
 local common_capabilities = lvim_lsp.common_capabilities()
 
-lvim.lsp.on_attach_callback = function(client, bufnr)
-  if lvim.colorscheme == 'gruvbox' then
-    -- change coloring of errors so I can actually read them with gruvbox
-    vim.cmd(':hi DiagnosticError guifg=#de5b64 guibg=#1C1C1C')
-    vim.cmd(':hi DiagnosticWarn guifg=DarkOrange ctermfg=DarkYellow')
-    vim.cmd(':hi DiagnosticInfo guifg=Cyan ctermfg=Cyan')
-    vim.cmd(':hi DiagnosticHint guifg=White ctermfg=White')
-  end
-end
-
-
 -- Typescript config using typescript.nvim
 ts.setup({
   server = {
@@ -29,15 +18,15 @@ ts.setup({
 })
 
 -- -- Keeping this here for reference
--- require("lvim.lsp.manager").setup("tsserver", {
---   root_dir = require('lspconfig.util').root_pattern('.git'),
---   on_attach = common_on_attach,
---   filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript" },
---   cmd = {
---     "typescript-language-server",
---     "--stdio",
---   },
--- })
+require("lvim.lsp.manager").setup("tsserver", {
+  root_dir = require('lspconfig.util').root_pattern('.git'),
+  on_attach = common_on_attach,
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript" },
+  cmd = {
+    "typescript-language-server",
+    "--stdio",
+  },
+})
 
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup({
@@ -81,3 +70,35 @@ lvim.lsp.diagnostics.float.focusable = true
 --   "Code Actions" }
 -- lvim.builtin.cmp.formatting.source_names["copilot"] = "(Copilot)"
 -- table.insert(lvim.builtin.cmp.sources, 1, { name = "copilot" })
+
+-- -- Setup lsp.
+-- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "tsserver" })
+
+-- local capabilities = require("lvim.lsp").common_capabilities()
+
+-- require("typescript").setup {
+--   disable_commands = false, -- prevent the plugin from creating Vim commands
+--   debug = false,            -- enable debug logging for commands
+--   go_to_source_definition = {
+--     fallback = true,        -- fall back to standard LSP definition on failure
+--   },
+--   server = {
+--     -- pass options to lspconfig's setup method
+--     on_attach = require("lvim.lsp").common_on_attach,
+--     on_init = require("lvim.lsp").common_on_init,
+--     capabilities = capabilities,
+--   },
+-- }
+
+-- -- Set a formatter.
+-- local formatters = require "lvim.lsp.null-ls.formatters"
+-- formatters.setup {
+--   { command = "prettierd", filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "css" } },
+-- }
+
+
+-- -- Set a linter.
+-- local linters = require("lvim.lsp.null-ls.linters")
+-- linters.setup({
+--   { command = "eslint_d", filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" } },
+-- })

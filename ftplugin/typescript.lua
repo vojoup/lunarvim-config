@@ -7,7 +7,7 @@ local vopts = lvim.builtin.which_key.vopts
 local opts = lvim.builtin.which_key.opts
 
 local mappings = {
-  C = {
+  ["C"] = {
     name = "Typescript",
     i = { "<cmd>TypescriptAddMissingImports<Cr>", "AddMissingImports" },
     o = { "<cmd>TypescriptOrganizeImports<cr>", "OrganizeImports" },
